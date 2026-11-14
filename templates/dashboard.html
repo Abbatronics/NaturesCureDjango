@@ -52,7 +52,7 @@
   <div class="main">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
       <div>
-        <h1 style="margin: 0; font-size: 24px;">Sannu, {{ user.first_name|default:"Abba" }} 👋</h1>
+        <h1 style="margin: 0; font-size: 24px;">Sannu, {{ user.first_name|default:user.username|default:"Friend" }} 👋</h1>
         <p style="margin: 6px 0 0; color: #666; font-size: 14px;">Welcome back — wetin you wan do today?</p>
       </div>
       <div style="display: flex; gap: 10px;">
