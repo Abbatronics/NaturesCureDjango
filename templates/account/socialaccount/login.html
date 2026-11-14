@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div style="max-width: 420px; margin: 60px auto; padding: 32px; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; font-family: sans-serif;">
+
+  <div style="font-size: 40px;">🌿</div>
+  <h1 style="font-size: 24px; margin: 10px 0 8px;">Continue with Google</h1>
+  <p style="color: #666; font-size: 14px; line-height: 1.5;">
+    You are about to sign in to <b>NaturesCure</b> using your Google account.
+    We will only use your name and email to create your account.
+  </p>
+
+  <form method="post" style="margin-top: 24px;">
+    {% csrf_token %}
+    <button type="submit" style="width: 100%; padding: 14px; background: #1a7f4b; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer;">
+      Continue with Google →
+    </button>
+  </form>
+
+  <a href="{% url 'account_login' %}" style="display: block; margin-top: 16px; color: #888; font-size: 13px; text-decoration: none;">
+    ← Back to login
+  </a>
+</div>
+{% endblock %}

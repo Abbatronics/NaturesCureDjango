@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% block content %}
+<div style="max-width: 440px; margin: 40px auto; padding: 24px; font-family: sans-serif;">
+  <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center;">
+    <h2>Create Account</h2>
+    <a href="{% provider_login_url 'google' %}" style="display: block; background: white; border: 1px solid #ddd; padding: 12px; border-radius: 10px; text-decoration: none; color: #222; font-weight: bold;">Continue with Google</a>
+    <p style="margin: 16px 0; color: #aaa;">--- OR ---</p>
+    <a href="{% url 'send_otp' %}" style="display: block; background: #1a7f4b; color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold;">Sign Up With Email OTP</a>
+  </div>
+</div>
+{% endblock %}

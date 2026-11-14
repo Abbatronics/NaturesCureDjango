@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+
+{% block content %}
+<div style="max-width: 440px; margin: 40px auto; padding: 24px; font-family: sans-serif;">
+  <div style="background: white; padding: 28px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center;">
+    <div style="font-size: 36px;">🌿</div>
+    <h2 style="margin: 10px 0 4px;">Create Account</h2>
+    <p style="color: #888; font-size: 14px; margin: 0 0 20px;">Join NaturesCure — Natural healing for Naija</p>
+
+    <!-- GOOGLE STILL DEY HERE - WE NO TOUCH AM -->
+    <a href="{% provider_login_url 'google' %}" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: white; border: 1px solid #ddd; padding: 12px; border-radius: 10px; text-decoration: none; color: #222; font-weight: bold; font-size: 14px;">
+      <img src="https://www.google.com/favicon.ico" style="width: 18px;"> Continue with Google
+    </a>
+
+    <div style="display: flex; align-items: center; gap: 10px; margin: 20px 0; color: #aaa; font-size: 13px;">
+      <hr style="flex: 1;"> OR SIGN UP WITH EMAIL <hr style="flex: 1;">
+    </div>
+
+    <!-- OTP FORM -->
+    <form method="POST" action="{% url 'send_otp' %}" style="text-align: left;">
+      {% csrf_token %}
+      <label style="font-size: 13px; font-weight: bold;">Full Name</label>
+      <input type="text" name="name" required placeholder="e.g. Abba Sani" style="width: 100%; padding: 12px; margin: 6px 0 12px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box;">
+
+      <label style="font-size: 13px; font-weight: bold;">Email Address</label>
+      <input type="email" name="email" required placeholder="you@gmail.com" style="width: 100%; padding: 12px; margin: 6px 0 12px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box;">
+
+      <label style="font-size: 13px; font-weight: bold;">Password</label>
+      <input type="password" name="password" required placeholder="Create password" style="width: 100%; padding: 12px; margin: 6px 0 16px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box;">
+
+      <button type="submit" style="width: 100%; background: #1a7f4b; color: white; padding: 13px; border: none; border-radius: 10px; font-weight: bold; font-size: 15px; cursor: pointer;">Send OTP Code →</button>
+    </form>
+
+    <p style="font-size: 13px; color: #888; margin-top: 16px;">Already get account? <a href="{% url 'account_login' %}" style="color: #1a7f4b; font-weight: bold;">Login</a></p>
+  </div>
+</div>
+{% endblock %}
